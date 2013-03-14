@@ -407,8 +407,8 @@ window.addEventListener("DOMContentLoaded", function() {
             makeDiv.appendChild(newBoard);
             newBoard.setAttribute("class", "newBoard");
             
-            
-            
+                            
+                            
             
             for (i=0, j=localStorage.length; i<j; i++){
                 var key = localStorage.key(i);
@@ -416,13 +416,13 @@ window.addEventListener("DOMContentLoaded", function() {
                 var obj = JSON.parse(value);
                 for (n in obj){
                     if(brandName === obj[n][1]){
+                        var boardSpecs = document.createElement('div');
+                        newBoard.appendChild(boardSpecs);
+                        boardSpecs.setAttribute("class", "boardSpecs2");
+                        var makeSubList = document.createElement("ul");
+                
                         for (q in obj){
                             //getCategoryImage(object.category[1], newBoard);
-                            var boardSpecs = document.createElement('div');
-                            newBoard.appendChild(boardSpecs);
-                            boardSpecs.setAttribute("class", "boardSpecs");
-            
-                            var makeSubList = document.createElement("ul");
                             boardSpecs.appendChild(makeSubList);
                             var makeSubLi = document.createElement("li");
                             makeSubList.appendChild(makeSubLi);

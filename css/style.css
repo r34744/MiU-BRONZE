@@ -147,6 +147,15 @@ ul #errors{
     
 }
 
+.boardSpecs2{
+	width: 50%;
+    display: inline;
+    
+    
+}
+
+
+
 ul, menu, dir {
     display: block;
     padding: 5px;
