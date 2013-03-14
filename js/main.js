@@ -378,63 +378,34 @@ window.addEventListener("DOMContentLoaded", function() {
     var addBoard = GetID("addNew");
     addBoard.addEventListener("click", openAddWindow);
     
-    /*
-    //show categories browser
-    var showCategory = function(){
-        var pushedCat = Vintage;
-        toggleControls("on");
-        if(localStorage.length ===0){
-            alert("No boards saved - default data added!");
-            defaultFillData();
-        }
-        var makeDiv = document.createElement("div");
-        makeDiv.setAttribute("id", "NewBoards");
-        document.body.appendChild(makeDiv);
-        GetID("NewBoards").style.display = "block";
-        for (var i=0, j=localStorage.length; i<j; i++) {
-            var editLinks = document.createElement("li");
-            var key = localStorage.key(i);
-            var value = localStorage.getItem(key);
-            
-            //connecting string in localstorage to an object
-            var object = JSON.parse(value);
-            
-            var newBoard = document.createElement('div');
-            makeDiv.appendChild(newBoard);
-            newBoard.setAttribute("class", "newBoard");
-            
-            if (object[i].category[1] == pushedCat) {
-                getCategoryImage(object[i].category[1], newBoard);
-                var boardSpecs = document.createElement('div');
-                newBoard.appendChild(boardSpecs);
-                boardSpecs.setAttribute("class", "boardSpecs");
-                var makeSubList = document.createElement("ul");
-                boardSpecs.appendChild(makeSubList);
-            
-                var makeSubLi = document.createElement("li");
-                makeSubList.appendChild(makeSubLi);
-                var optSubText = object[i][0] + " " + object[i][1];
-                makeSubLi.innerHTML = optSubText;
-                makeSubList.appendChild(editLinks);
-            };
-                makeEditLinks(localStorage.key(i), editLinks); //creates the edit links for each item
-        };
-        
-        
-    };
+    //Search
+    var searchButton = GetID("searchButton");
+    searchButton.addEventListener("click", boardSearch);
     
-
-    //index page buttons
-    var vintageButton = GetID("vintageButton");
-    vintageButton.addEventListener("click", openBlankWindow);
-    var noveltyButton = GetID("noveltyButton");
-    noveltyButton.addEventListener("click", openBlankWindow);
-    var artButton = GetID("artButton");
-    artButton.addEventListener("click", openBlankWindow);
-    var riderButton = GetID("riderButton");
-    riderButton.addEventListener("click", openBlankWindow);
-    var brokenButton = GetID("brokenButton");
-    brokenButton.addEventListener("click", openBlankWindow);
-   */
+    
+    var boardSearch = function(){
+        var boardCategories = GetID("Category").value;
+        var brandName = GetID("search").value;
+        console.log(boardCategories);
+        
+        //Search by Term
+        if(brandName !=""){
+            for (i=0, j=localStorage.length; i<j; i++){
+                var key = localStorage.key(i);
+                var value = localStorage.getItem(key);
+                var obj = JSON.parce(value);
+                for (b in obj){
+                    if(brandName === obj[b][1]){
+                        for (b in obj){
+                        console.log(obj[b][1]);
+                        }
+                    }
+                }
+             
+            }
+        }
+        
+        
+    }
 
 } );
