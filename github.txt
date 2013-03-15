@@ -1,6 +1,6 @@
 
 source
-https://github.com/r34744/MiU.git
+https://github.com/r34744/MiU-BRONZE.git
 
 live web
-http://r34744.github.com/MiU/
+http://r34744.github.com/MiU-BRONZE/
